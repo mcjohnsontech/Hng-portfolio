@@ -109,9 +109,9 @@
         <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost" data-cursor="PDF">Resume ↓</a>
       </div>
       <div class="socials" role="list" aria-label="Social links">
-        <a href="https://github.com/mcjohnsontech" target="_blank" rel="noopener" role="listitem" aria-label="GitHub profile" data-cursor="GH">GitHub ↗</a>
-        <a href="https://x.com/mcjohnson144" target="_blank" rel="noopener" role="listitem" aria-label="Twitter / X profile" data-cursor="X">Twitter ↗</a>
-        <a href="mailto:hello@mcjohnson.dev" role="listitem" aria-label="Send email" data-cursor="MAIL">Email ↗</a>
+        <a href="https://github.com/mcjohnsontech" target="_blank" rel="noopener" aria-label="GitHub profile" data-cursor="GH">GitHub ↗</a>
+        <a href="https://x.com/mcjohnson144" target="_blank" rel="noopener" aria-label="Twitter / X profile" data-cursor="X">Twitter ↗</a>
+        <a href="mailto:hello@mcjohnson.dev" aria-label="Send email" data-cursor="MAIL">Email ↗</a>
       </div>
     </div>
     <div class="hero-right" aria-label="Draggable skill tags — try dragging them!">
@@ -233,7 +233,7 @@
 </section>
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
-<footer class="footer" role="contentinfo">
+<footer class="footer">
   <div class="in footer-in">
     <div class="footer-left">
       <p class="footer-name">McJohnson</p>

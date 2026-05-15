@@ -35,7 +35,7 @@
   }
 </script>
 
-<article class="project-card" class:featured={project.featured} use:tilt data-cursor="VIEW" role="article" aria-label="Project: {project.title}">
+<article class="project-card" class:featured={project.featured} use:tilt data-cursor="VIEW" aria-label="Project: {project.title}">
   <div class="shine"></div>
   <div class="card-top">
     <span class="year">{project.year}</span>
