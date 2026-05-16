@@ -4,8 +4,8 @@
   import CardPile from '$lib/components/CardPile.svelte';
   import Terminal from '$lib/components/Terminal.svelte';
   import ContactForm from '$lib/components/ContactForm.svelte';
-  import FAQ from '$lib/components/FAQ.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
+  import PuzzleSection from '$lib/components/PuzzleSection.svelte';
 
   let scrollProgress = $state(0);
   let navScrolled = $state(false);
@@ -129,24 +129,20 @@
 <!-- ═══════════════════════════ WORK ═══════════════════════════ -->
 <section class="section light-section" id="work" aria-labelledby="work-title">
   <div class="in">
-    <div class="section-header" use:reveal>
-      <p class="eyebrow-dark">Step 01</p>
-      <h2 id="work-title" class="section-title dark-text">The work.</h2>
+    <div class="work-header" use:reveal>
+      <div>
+        <p class="eyebrow-dark">Step 01</p>
+        <h2 id="work-title" class="section-title dark-text">The work.</h2>
+        <p class="body-text dark-muted">Production applications spanning AI tooling, security, PWAs, and real-time dashboards. Each project ships with purpose.</p>
+        <a href="https://github.com/mcjohnsontech" target="_blank" rel="noopener" class="btn btn-black" data-cursor="MORE">View all on GitHub ↗</a>
+      </div>
     </div>
-    <div class="work-layout">
-      <div class="work-text" use:reveal>
-        <p class="body-text dark-muted">
-          Three years of shipping production applications. Each project is an exercise in balancing visual ambition with engineering discipline — fast loads, smooth motion, and code that doesn't embarrass me six months later.
-        </p>
-        <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-black" data-cursor="MORE">View all on GitHub →</a>
-      </div>
-      <div class="work-projects">
-        {#each projects as p (p.id)}
-          <div use:reveal style="transition-delay:{p.id*0.08}s">
-            <ProjectCard project={p} />
-          </div>
-        {/each}
-      </div>
+    <div class="work-grid">
+      {#each projects as p (p.id)}
+        <div use:reveal style="transition-delay:{p.id*0.06}s">
+          <ProjectCard project={p} />
+        </div>
+      {/each}
     </div>
   </div>
 </section>
@@ -224,11 +220,17 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
-<section class="section light-section" id="faq" aria-labelledby="faq-title">
+<!-- ═══════════════════════════ PUZZLE ═══════════════════════════ -->
+<section class="section light-section" id="puzzle" aria-labelledby="puzzle-title">
   <div class="in">
-    <h2 id="faq-title" class="section-title dark-text center" use:reveal>Your dumb questions.</h2>
-    <div use:reveal><FAQ /></div>
+    <div use:reveal>
+      <p class="eyebrow-dark">Explore</p>
+      <h2 id="puzzle-title" class="section-title dark-text">Break it apart.<br/>Put it back.</h2>
+      <p class="body-text dark-muted" style="max-width:480px">Drag the tiles apart to explore what makes me tick. Hit reset to watch them spring back home.</p>
+    </div>
+    <div use:reveal>
+      <PuzzleSection />
+    </div>
   </div>
 </section>
 
@@ -313,10 +315,8 @@
   .dark-muted { color:rgba(10,10,10,0.6); }
 
   /* ── WORK SECTION ── */
-  .section-header { margin-bottom:48px; }
-  .work-layout { display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start; }
-  .work-text { position:sticky;top:100px; }
-  .work-projects { display:flex;flex-direction:column;gap:20px; }
+  .work-header { margin-bottom:48px; }
+  .work-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
 
   /* ── APPROACH SECTION ── */
   .approach-layout { display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start; }
@@ -364,14 +364,15 @@
   @media (max-width:960px) {
     .hero-in { grid-template-columns:1fr;padding:130px 24px 60px;gap:40px; }
     .hero-right { height:300px; overflow:hidden; }
-    .work-layout,.approach-layout,.contact-in { grid-template-columns:1fr;gap:40px; }
-    .work-text { position:static; }
+    .work-grid { grid-template-columns:1fr; }
+    .approach-layout,.contact-in { grid-template-columns:1fr;gap:40px; }
     .exp-grid { grid-template-columns:1fr 1fr; }
     .nav { padding:16px 24px; }
     .nav.scrolled { padding:12px 24px; }
     .in { padding:0 24px; }
   }
   @media (max-width:600px) {
+    .work-grid { grid-template-columns:1fr; }
     .exp-grid { grid-template-columns:1fr; }
     .nav-links { display:none; }
     .footer-in { flex-direction:column;text-align:center;align-items:center; }
